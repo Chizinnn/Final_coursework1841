@@ -3,7 +3,7 @@
         <p><?= $error ?></p>
     </div>
 <?php else: ?>
-
+    <h2>List All Of Posts</h2>  
     <div class="masonry-grid">
         <?php foreach ($posts as $post): ?>
             <div class="post-card"> 
