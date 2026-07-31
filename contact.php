@@ -1,16 +1,26 @@
 <?php
-if (isset($_POST['message'])) {
-    $title = "contact us";
-    $message = $_POST['message'];
-    /*ini_set is required for the Uni servers - it specifies which email account*/
-    ini_set("SMTP", "smtp.gre.ac.uk");
-    ini_set("sendmail_from", "pm76@gre.ac.uk");
-    mail("pm76@gre.ac.uk", "mail test", $message);
-    $output = "Thank you for your message we will get back to you shortly";
-} else {
-    $title = "Contact Us";
-    ob_start();
-    include 'templates/mailform.html.php';
-    $output = ob_get_clean();
+try {
+    include 'includes/DatabaseConnection.php';
+    include 'includes/DatabaseFunctions.php';
+
+    if (isset($_POST['message'])) {
+        $title = "Contact Us";
+        
+        insertContact($pdo, $_POST['name'], $_POST['email'], $_POST['message']);
+        
+        $message = $_POST['message'];
+       
+        $output = "Thanks for asking! Please wait.";
+        
+    } else {
+        $title = "Contact Us";
+        ob_start();
+        include 'templates/mailform.html.php';
+        $output = ob_get_clean();
+    }
+} catch (PDOException $e) {
+    $title = 'Error';
+    $output = 'Database error: ' . $e->getMessage();
 }
 include 'templates/layout.html.php';
+?>

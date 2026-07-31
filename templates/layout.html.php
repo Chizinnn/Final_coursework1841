@@ -22,7 +22,7 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="posts.php">Post List</a></li>
-                    <li><a href="addpost.php">Add a new Post</a></li>
+                    <li><a href="modules.php">Modules</a></li>
                     <li><a href="contact.php">Contact Us</a></li>
                 </ul>
             </nav>
@@ -33,7 +33,6 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
             <?=$output?>
         </main>

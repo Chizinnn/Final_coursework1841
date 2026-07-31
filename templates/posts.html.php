@@ -1,4 +1,10 @@
-<h2>Lists all of Posts</h2>
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <h2>Lists all of Posts</h2>
+    
+    <a href="addpost.php">
+        <button type="button">+ Add a new Post</button>
+    </a>
+</div>
 <?php if (isset($error)): ?>
     <div class="errors">
         <p><?= $error ?></p>

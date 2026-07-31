@@ -83,3 +83,86 @@ function getOrCreateUser($pdo, $username, $email) {
     
     return $pdo->lastInsertId();
 }
+
+function getModule($pdo, $id) {
+    $parameters = [':id' => $id];
+    $sql = 'SELECT module_id, module_code, module_name FROM modules WHERE module_id = :id';
+    $query = query($pdo, $sql, $parameters);
+    return $query->fetch();
+}
+
+function insertModule($pdo, $module_code, $module_name) {
+    $query = 'INSERT INTO modules (module_code, module_name) VALUES (:module_code, :module_name)';
+    $parameters = [
+        ':module_code' => $module_code,
+        ':module_name' => $module_name
+    ];
+    query($pdo, $query, $parameters);
+}
+
+function updateModule($pdo, $module_id, $module_code, $module_name) {
+    $query = 'UPDATE modules SET module_code = :module_code, module_name = :module_name WHERE module_id = :id';
+    $parameters = [
+        ':module_code' => $module_code,
+        ':module_name' => $module_name,
+        ':id' => $module_id
+    ];
+    query($pdo, $query, $parameters);
+}
+function deleteModule($pdo, $id) {
+    $parameters = [':id' => $id];
+    query($pdo, 'DELETE FROM posts WHERE module_id = :id', $parameters);
+    query($pdo, 'DELETE FROM modules WHERE module_id = :id', $parameters);
+}
+
+function insertContact($pdo, $name, $email, $message) {
+    $query = 'INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)';
+    $parameters = [
+        ':name' => $name,
+        ':email' => $email,
+        ':message' => $message
+    ];
+    query($pdo, $query, $parameters);
+}
+
+function allContacts($pdo) {
+    $sql = 'SELECT contact_id, name, email, message FROM contacts';
+    $contacts = query($pdo, $sql);
+    return $contacts->fetchAll();
+}
+
+function deleteContact($pdo, $id) {
+    $parameters = [':id' => $id];
+    query($pdo, 'DELETE FROM contacts WHERE contact_id = :id', $parameters);
+}
+function getUser($pdo, $id) {
+    $parameters = [':id' => $id];
+    $sql = 'SELECT user_id, username, user_email FROM users WHERE user_id = :id';
+    $query = query($pdo, $sql, $parameters);
+    return $query->fetch();
+}
+
+function insertUser($pdo, $username, $email) {
+    $query = 'INSERT INTO users (username, user_email) VALUES (:username, :email)';
+    $parameters = [
+        ':username' => $username,
+        ':email' => $email
+    ];
+    query($pdo, $query, $parameters);
+}
+
+function updateUser($pdo, $id, $username, $email) {
+    $query = 'UPDATE users SET username = :username, user_email = :email WHERE user_id = :id';
+    $parameters = [
+        ':username' => $username,
+        ':email' => $email,
+        ':id' => $id
+    ];
+    query($pdo, $query, $parameters);
+}
+
+function deleteUser($pdo, $id) {
+    $parameters = [':id' => $id];
+    query($pdo, 'DELETE FROM posts WHERE user_id = :id', $parameters);
+    query($pdo, 'DELETE FROM users WHERE user_id = :id', $parameters);
+}

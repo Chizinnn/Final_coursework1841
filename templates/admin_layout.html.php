@@ -22,6 +22,9 @@
                 <ul>
                     <li><a href="posts.php">Posts List</a></li>
                     <li><a href="addpost.php">Add Post</a></li>
+                    <li><a href="modules.php">Manage Module</a></li>
+                    <li><a href="contacts.php">View Contacts</a></li>
+                    <li><a href="users.php">Manage Users</a></li>
                 </ul>
             </nav>
             
