@@ -20,25 +20,6 @@ function getPost($pdo, $id) {
     return $query->fetch();
 }
 
-
-function getorcreateuser($pdo, $username, $email){
-    $parameters = [':username' => $username];
-    $query = query($pdo, 'SELECT user_id FROM users WHERE username = :username LIMIT 1', $parameters);
-    $row = $query->fetch();
-    if ($row) {
-        return $row['user_id'];
-    }
-    $insertQuery = 'INSERT INTO users (username, user_email) VALUES (:username, :email)';
-    $insertParams = [
-        ':username' => $username,
-        ':email' => $email
-    ];
-    query($pdo, $insertQuery, $insertParams);
-    
-    return $pdo->lastInsertId();
-}
-
-
 function totalPosts($pdo){
     $query = query($pdo, 'SELECT COUNT(*) FROM posts');
     $row = $query->fetch();
@@ -82,4 +63,23 @@ function allUsers($pdo) {
 function allModules($pdo) {
     $modules = query($pdo, 'SELECT * FROM modules');
     return $modules->fetchAll();
+}
+
+function getOrCreateUser($pdo, $username, $email) {
+    $parameters = [':username' => $username];
+    $query = query($pdo, 'SELECT user_id FROM users WHERE username = :username LIMIT 1', $parameters);
+    $row = $query->fetch();
+
+    if ($row) {
+        return $row['user_id'];
+    }
+
+    $insertQuery = 'INSERT INTO users (username, user_email) VALUES (:username, :email)';
+    $insertParams = [
+        ':username' => $username,
+        ':email' => $email
+    ];
+    query($pdo, $insertQuery, $insertParams);
+    
+    return $pdo->lastInsertId();
 }

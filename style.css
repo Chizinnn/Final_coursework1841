@@ -130,44 +130,73 @@ p {
     margin-bottom: 15px;
 }
 
-/* Masonry Grid */
-.masonry-grid {
-    column-count: 3;
-    column-gap: 20px;
+/* 3-Column Grid Layout */
+.grid-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
 }
 
 @media (max-width: 1200px) {
-    .masonry-grid { column-count: 2; }
+    .grid-list { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 800px) {
-    .masonry-grid { column-count: 1; }
     .sidebar { position: relative; height: auto; width: 100%; }
     .app-container { flex-direction: column; }
     .main-content { margin-left: 0; padding: 20px; }
+    .grid-list { grid-template-columns: 1fr; }
 }
 
 /* Post Card */
 .post-card {
-    break-inside: avoid;
     background: #ffffff;
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    transition: transform 0.2s;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .post-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.post-image-col {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .post-image {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    height: 200px;
     object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.05);
+}
+
+.post-content-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.post-excerpt {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex: 1;
 }
 
 .post-title {
@@ -201,39 +230,78 @@ p {
 
 .post-actions {
     display: flex;
+    align-items: center;
     gap: 10px;
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid #f1f5f9;
 }
 
-/* Forms */
-form {
+.post-actions form button {
+    margin-top: 0;
+}
+
+/* Form Card Layout */
+.form-card {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
+    gap: 20px;
+}
+
+.form-card label {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: -10px;
+    font-size: 14px;
 }
 
 input[type="text"],
 input[type="email"],
-textarea {
-    padding: 10px 15px;
+textarea,
+select {
+    padding: 12px 16px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-family: inherit;
     font-size: 14px;
     width: 100%;
+    transition: all 0.2s ease;
+    background-color: #f8fafc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    background-color: #ffffff;
 }
 
 input[type="submit"], button {
     background-color: var(--primary);
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
 }
 
 button.delete-btn {
@@ -241,14 +309,22 @@ button.delete-btn {
 }
 
 .edit-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: #f1f5f9;
     color: #334155;
-    padding: 8px 16px;
+    padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.edit-link:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-2px);
 }
 
 .errors {

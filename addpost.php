@@ -4,7 +4,7 @@ include 'includes/DatabaseFunctions.php';
 if(isset($_POST['content'])){
     try{
         $user_email = $_POST['user_email'] ?? '';
-        $user_id = getorcreateuser($pdo, $_POST['username'], $user_email);
+        $user_id = getOrCreateUser($pdo, $_POST['username'], $user_email);
         insertPost($pdo, $_POST['title'], $_POST['content'], $_POST['image_path'], $user_id, $_POST['module_id']);
         header('location: posts.php');
     }catch (PDOException $e){
