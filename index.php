@@ -1,5 +1,5 @@
 <?php
-$title = 'Greenwich Student Posts ';
+$title = 'Greenwich Student Q&A ';
 ob_start();
 include 'templates/home.html.php';
 $output = ob_get_clean();

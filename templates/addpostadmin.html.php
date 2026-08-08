@@ -2,7 +2,7 @@
     <h2>Add Post</h2>
     
     <div class="form-card">
-        <form action="" method="post" style="display: flex; flex-direction: column; gap: 20px;">
+        <form action="" method="post" enctype= "multipart/form-data" style="display: flex; flex-direction: column; gap: 20px;">
             <div>
                 <label for="title" style="display: block; margin-bottom: 8px;">Post Title:</label>
                 <input type="text" name="title" id="title" required>
@@ -14,11 +14,10 @@
             </div>
             
             <div>
-                <label for="image_path" style="display: block; margin-bottom: 8px;">Image File Name:</label>
-                <input type="text" name="image_path" id="image_path">
+                <label for="image" style="display: block; margin-bottom: 8px;">Upload Image:</label>
+                <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg, image/gif">
             </div>
             
-            <!-- DROPDOWN CHỌN TÁC GIẢ -->
             <div>
                 <label for="user_id" style="display: block; margin-bottom: 8px;">Author:</label>
                 <select name="user_id" id="user_id" required>

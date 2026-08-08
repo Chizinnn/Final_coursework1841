@@ -108,19 +108,18 @@ body {
     font-weight: 600;
 }
 
-/* Main Content */
 .main-content {
     flex: 1;
     margin-left: var(--sidebar-width);
     padding: 40px;
 }
-/* Home Page */
+
 .welcome-home-page{
     border: 1px solid var(--border-color);
     width: 100%;
     border-radius: 20px;
 }
-/* Typography */
+
 h2 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -130,7 +129,6 @@ p {
     margin-bottom: 15px;
 }
 
-/* 3-Column Grid Layout */
 .grid-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -164,7 +162,7 @@ p {
 
 .post-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 25px rgba(212, 8, 8, 0.08);
 }
 
 .post-image-col {

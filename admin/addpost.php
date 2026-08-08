@@ -5,7 +5,15 @@ try {
     include '../includes/DatabaseFunctions.php';
 
     if(isset($_POST['content'])){
-        insertPost($pdo, $_POST['title'], $_POST['content'], $_POST['image_path'], $_POST['user_id'], $_POST['module_id']);
+        $image_path= '';
+        if(isset($_FILES['image']) && $_FILES['image']['error'] ==0){
+            $filename = basename($_FILES['image']['name']);
+            $targetfilepath = "../images/" .$filename;
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $targetfilepath)){
+                $image_path = $filename;
+            }
+        }
+        insertPost($pdo, $_POST['title'], $_POST['content'], $image_path, $_POST['user_id'], $_POST['module_id']);
         header('location: posts.php');
         exit;
     } else {

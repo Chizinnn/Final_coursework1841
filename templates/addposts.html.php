@@ -1,18 +1,12 @@
-<form action="" method="post" class="form-card">
+<form action="" method="post" enctype="multipart/form-data" class="form-card">
     <label for="title">Post Title:</label>
     <input type="text" name="title" id="title">
 
     <label for="content">Type your Post content here:</label>
     <textarea name="content" rows="3" cols="40"></textarea>
 
-    <label for="image_path">Type image file name:</label>
-    <input type="text" name="image_path" id="image_path">
-
-    <label for="username">User Name:</label>
-    <input type="text" name="username" id="username" placeholder="enter your name" required>
-
-    <label for="user_email">Email:</label>
-    <input type="email" name="user_email" id="user_email" placeholder="enter your email" required>
+    <label for="image">Upload Image:</label>
+    <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg, image/gif">
 
     <label for="module_id">Module:</label>
     <select name="module_id" id="module_id">

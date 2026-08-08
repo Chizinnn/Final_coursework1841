@@ -39,12 +39,14 @@ function insertPost($pdo, $title, $content, $image_path, $user_id, $module_id) {
     query($pdo, $query, $parameters);
 }
 
-function updatePost($pdo, $postId, $title, $content, $image_path) {
-    $query = 'UPDATE posts SET title = :title, content = :content, image_path = :image_path WHERE post_id = :id';
+function updatePost($pdo, $postId, $title, $content, $image_path, $user_id, $module_id) {
+    $query = 'UPDATE posts SET title = :title, content = :content, image_path = :image_path, user_id = :user_id, module_id = :module_id WHERE post_id = :id';
     $parameters = [
         ':title' => $title,
         ':content' => $content,
         ':image_path' => $image_path,
+        ':user_id' => $user_id,
+        ':module_id' => $module_id,
         ':id' => $postId
     ];
     query($pdo, $query, $parameters);
@@ -165,4 +167,21 @@ function deleteUser($pdo, $id) {
     $parameters = [':id' => $id];
     query($pdo, 'DELETE FROM posts WHERE user_id = :id', $parameters);
     query($pdo, 'DELETE FROM users WHERE user_id = :id', $parameters);
+}
+
+function register($pdo, $username, $email, $password){
+    $sql = 'INSERT INTO users (username, user_email, user_password) VALUES (:username,:email, :password)';
+    $parameters = [
+        ':username' => $username,
+        ':email' => $email,
+        ':password' => $password
+    ];
+    query($pdo, $sql, $parameters);
+}
+
+function getUserByEmail($pdo, $email) {
+    $parameters = [':email' => $email];
+    $sql = 'SELECT user_id, username, user_password FROM users WHERE user_email = :email';
+    $query = query($pdo, $sql, $parameters);
+    return $query->fetch();
 }

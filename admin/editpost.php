@@ -4,11 +4,14 @@ include '../includes/DatabaseConnection.php';
 include '../includes/DatabaseFunctions.php';
 try {
     if (isset($_POST['content'])) {
-        updatePost($pdo, $_POST['postid'], $_POST['title'], $_POST['content'], $_POST['image_path']);
+        updatePost($pdo, $_POST['postid'], $_POST['title'], $_POST['content'], $_POST['user_id'],$_POST['module_id'],$_POST['image_path']);
         header('location: posts.php');
     } else {
         $post = getPost($pdo, $_GET['id']);
+        $users= allUsers($pdo);
+        $modules = allModules($pdo);
         $title = 'Edit Post';
+        $isAdmin = true;
         ob_start();
         include '../templates/editpost.html.php';
         $output = ob_get_clean();
