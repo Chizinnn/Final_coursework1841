@@ -1,4 +1,4 @@
-<div class="contact-container" style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif;">
+<div class="welcome-home-page" style="padding: 30px;">
     <h2>Get in Touch</h2>
     <p>If you have any questions, feedback, or need assistance, please drop us a message using the form below or contact our student support center directly.</p>
     
@@ -15,28 +15,6 @@
                     Send Email
                 </button>
             </form>
-        </div>
-
-        <div style="flex: 1; min-width: 250px; padding: 20px; border-radius: 4px; border-left: 5px solid #2f22e7;">
-            <h3 style="margin-top: 0; color: #333;">Contact Information</h3>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-                <li>
-                    <strong>📍 Address:</strong><br>
-                    UNIVERSITY OF GREENWICH VIETNAM
-                </li>
-                <li>
-                    <strong>📞 Phone:</strong><br>
-                    +084 529 7759
-                </li>
-                <li>
-                    <strong>✉️ Email Support:</strong><br>
-                    <a href="mailto:pm76@gre.ac.uk" style="color: #2bb673; text-decoration: none;">lcv76@gre.ac.uk</a>
-                </li>
-                <li>
-                    <strong>🕒 Office Hours:</strong><br>
-                    Monday - Friday: 8:00 AM - 5:00 PM
-                </li>
-            </ul>
         </div>
 
     </div>

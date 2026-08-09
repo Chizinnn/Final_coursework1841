@@ -7,24 +7,24 @@
     <?php if (empty($modules)): ?>
         <p>There are no subjects in the database yet.</p>
     <?php else: ?>
-        <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
-            <thead style="background: #f1f5f9; text-align: left;">
+        <table class="data-table">
+            <thead>
                 <tr>
-                    <th style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">Module Code:</th>
-                    <th style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">Module Name</th>
-                    <th style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0; width: 200px;">Actions</th>
+                    <th>Module Code:</th>
+                    <th>Module Name</th>
+                    <th style="width: 200px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($modules as $module): ?>
                 <tr>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                    <td>
                         <strong><?= htmlspecialchars($module['module_code'], ENT_QUOTES, 'UTF-8') ?></strong>
                     </td>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                    <td>
                         <?= htmlspecialchars($module['module_name'], ENT_QUOTES, 'UTF-8') ?>
                     </td>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                    <td>
                         <div style="display: flex; gap: 10px; align-items: center;">
                             <a href="editmodule.php?id=<?= $module['module_id'] ?>" class="edit-link">Edit</a>
                                                         <form action="deletemodule.php" method="post" style="margin: 0;" onsubmit="

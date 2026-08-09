@@ -12,10 +12,6 @@
             <div class="sidebar-header">
                 <h1>Greenwich Hub</h1>
             </div>
-            
-            <div class="sidebar-search">
-                <input type="text" placeholder="Search posts..." class="dummy-search">
-            </div>
 
             <nav class="sidebar-nav">
                 <ul>

@@ -13,9 +13,6 @@
                 <h1>Admin Area</h1>
             </div>
             
-            <div class="sidebar-search">
-                <input type="text" placeholder="Search posts..." class="dummy-search">
-            </div>
 
             <nav class="sidebar-nav">
                 <ul>

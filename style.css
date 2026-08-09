@@ -24,14 +24,11 @@ body {
     line-height: 1.6;
     font-size: 15px;
 }
-
-/* Layout */
 .app-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--bg-sidebar);
@@ -51,10 +48,6 @@ body {
     font-size: 22px;
     font-weight: 700;
     color: var(--text-main);
-}
-
-.sidebar-search {
-    margin-bottom: 30px;
 }
 
 .dummy-search {
@@ -117,6 +110,7 @@ body {
     border: 1px solid var(--border-color);
     width: 100%;
     border-radius: 20px;
+    background-color: #ffffff;
 }
 
 h2 {
@@ -130,13 +124,13 @@ p {
 
 .grid-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
     width: 100%;
 }
 
 @media (max-width: 1200px) {
-    .grid-list { grid-template-columns: repeat(2, 1fr); }
+    .grid-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 800px) {
@@ -144,6 +138,8 @@ p {
     .app-container { flex-direction: column; }
     .main-content { margin-left: 0; padding: 20px; }
     .grid-list { grid-template-columns: 1fr; }
+    .post-card { flex-direction: column; }
+    .post-image-col { width: 100%; }
 }
 
 .post-card {
@@ -151,20 +147,22 @@ p {
     border: 1px solid var(--border-color);
     padding: 20px;
     border-radius: 20px;
-    display: flex ;
-    flex-direction: column;
-    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
 }
 
 .post-image-col {
-    width: 100%;
-    border-radius: 20px;
+    width: 300px;
+    flex-shrink: 0;
+    border-radius: 12px;
     overflow: hidden;
 }
 
 .post-image {
     width: 100%;
-    height: 200px;
+    height: 100%;
+    min-height: 200px;
     object-fit: cover;
     display: block;
 }
@@ -222,7 +220,6 @@ p {
     margin-top: 0;
 }
 
-/* Form Card Layout */
 .form-card {
     background: #ffffff;
     padding: 30px 40px;
@@ -306,4 +303,24 @@ button.delete-btn {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.data-table thead {
+    background: #bfd5ec;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
 }
