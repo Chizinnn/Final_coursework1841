@@ -1,14 +1,15 @@
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="postid" value="<?= htmlspecialchars($post['post_id'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
     
     <label for="title">Edit Title:</label>
     <input type="text" name="title" id="title" value="<?= htmlspecialchars($post['title'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
 
-    <label for="content">Edit your Post content here:</label>
+    <label for="content">Edit your Post Content here:</label>
     <textarea name="content" rows="3" cols="40"><?= htmlspecialchars($post['content'] ?? '', ENT_QUOTES, 'UTF-8') ?></textarea>
     
-    <label for="image_path">Edit image file name:</label>
-    <input type="text" name="image_path" id="image_path" value="<?= htmlspecialchars($post['image_path'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+    <label for="image_file">Change Image (Leave blank to keep current):</label>
+    <input type="file" name="image_file" id="image_file" accept="image/*">
+    <p style="font-size: 13px; color: gray;">Current: <?= htmlspecialchars($post['image_path'] ?? 'None', ENT_QUOTES, 'UTF-8') ?></p>
 
     <label for="user_id">Author:</label>
     <select name="user_id" id="user_id" required>

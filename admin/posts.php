@@ -5,7 +5,7 @@ try{
     include '../includes/DatabaseFunctions.php';
 
     $posts = allPosts($pdo);
-    $title = 'Post list';
+    $title = 'Post List';
     $totalPosts = totalPosts($pdo);
 
     $isAdmin = true;
@@ -16,4 +16,4 @@ try{
     $title = 'An error has occured';
     $output = 'Database Error:' . $e->getMessage();
 }
-include '../templates/admin_layout.html.php';
+include '../templates/adminlayout.html.php';

@@ -86,7 +86,6 @@ body {
     display: block;
     padding: 10px 15px;
     border-radius: 8px;
-    transition: all 0.2s;
 }
 
 .sidebar-nav a:hover {
@@ -147,27 +146,19 @@ p {
     .grid-list { grid-template-columns: 1fr; }
 }
 
-/* Post Card */
 .post-card {
     background: #ffffff;
     border: 1px solid var(--border-color);
-    border-radius: 16px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
+    border-radius: 20px;
+    display: flex ;
     flex-direction: column;
     gap: 15px;
 }
 
-.post-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(212, 8, 8, 0.08);
-}
-
 .post-image-col {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -176,11 +167,6 @@ p {
     height: 200px;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
-}
-
-.post-card:hover .post-image {
-    transform: scale(1.05);
 }
 
 .post-content-col {
@@ -217,12 +203,9 @@ p {
 
 .post-badge {
     display: inline-block;
-    background: #e2e8f0;
-    color: #475569;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: bold;
     margin-bottom: 12px;
 }
 
@@ -244,7 +227,6 @@ p {
     background: #ffffff;
     padding: 30px 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border: 1px solid var(--border-color);
     max-width: 600px;
     display: flex;
@@ -269,7 +251,6 @@ select {
     font-family: inherit;
     font-size: 14px;
     width: 100%;
-    transition: all 0.2s ease;
     background-color: #f8fafc;
 }
 
@@ -279,7 +260,6 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
     background-color: #ffffff;
 }
 
@@ -292,14 +272,11 @@ input[type="submit"], button {
     cursor: pointer;
     font-weight: 600;
     font-size: 15px;
-    transition: all 0.2s ease;
     margin-top: 10px;
 }
 
 input[type="submit"]:hover, button:hover {
     background-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
 }
 
 button.delete-btn {
@@ -317,12 +294,10 @@ button.delete-btn {
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
-    transition: all 0.2s ease;
 }
 
 .edit-link:hover {
     background-color: #e2e8f0;
-    transform: translateY(-2px);
 }
 
 .errors {

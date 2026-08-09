@@ -4,7 +4,7 @@ try{
     include 'includes/DatabaseFunctions.php';
 
     $posts = allPosts($pdo);
-    $title = 'Post list';
+    $title = 'Post List';
     $totalPosts = totalPosts($pdo);
 
     ob_start();

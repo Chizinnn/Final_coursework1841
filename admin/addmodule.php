@@ -21,6 +21,6 @@ try {
     $output = 'Database error: ' . $e->getMessage();
 }
 
-include '../templates/admin_layout.html.php';
+include '../templates/adminlayout.html.php';
 ?>
 

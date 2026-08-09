@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-    <h2>Lists all of Posts</h2>
+    <h2>List of All Posts</h2>
     
     <a href="addpost.php">
         <button type="button">+ Add a new Post</button>
@@ -51,7 +51,7 @@
                         ?>
                     </div>
 
-                    <?php if (!empty($isAdmin)): ?>
+                    <?php if (!empty($isAdmin) || (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $post['user_id'])): ?>
                     <div class="post-actions">
                         <a href="editpost.php?id=<?= $post['post_id'] ?>" class="edit-link">Edit</a>
                         

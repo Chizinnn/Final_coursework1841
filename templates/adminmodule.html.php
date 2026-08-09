@@ -5,7 +5,7 @@
     </div>
 
     <?php if (empty($modules)): ?>
-        <p>Chưa có môn học nào trong cơ sở dữ liệu.</p>
+        <p>There are no subjects in the database yet.</p>
     <?php else: ?>
         <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
             <thead style="background: #f1f5f9; text-align: left;">
@@ -27,7 +27,8 @@
                     <td style="padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
                         <div style="display: flex; gap: 10px; align-items: center;">
                             <a href="editmodule.php?id=<?= $module['module_id'] ?>" class="edit-link">Edit</a>
-                                                        <form action="deletemodule.php" method="post" style="margin: 0;" onsubmit="return confirm('CẢNH BÁO: Xóa môn học này sẽ làm xóa TOÀN BỘ các bài viết thuộc môn học. Bạn có chắc chắn không?');">
+                                                        <form action="deletemodule.php" method="post" style="margin: 0;" onsubmit="
+                                                        return confirm('WARNING: Deleting this subject will delete ALL posts belonging to the subject. Are you sure?');">
                                 <input type="hidden" name="id" value="<?= $module['module_id'] ?>">
                                 <button type="submit" class="delete-btn" style="margin-top: 0; padding: 12px 24px; font-size: 15px;">Delete</button>
                             </form>

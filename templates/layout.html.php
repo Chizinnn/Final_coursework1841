@@ -8,10 +8,9 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1>Greenwich Q&A</h1>
+                <h1>Greenwich Hub</h1>
             </div>
             
             <div class="sidebar-search">

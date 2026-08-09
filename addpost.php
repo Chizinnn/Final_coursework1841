@@ -2,7 +2,7 @@
 include 'includes/DatabaseConnection.php';
 include 'includes/DatabaseFunctions.php';
 if (!isset($_SESSION['user_id'])) {
-    header("Location: user_login.php");
+    header("Location: userlogin.php");
     exit;
 }
 if(isset($_POST['content'])){

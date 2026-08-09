@@ -7,6 +7,6 @@ try{
     header('location: posts.php');
 }catch(PDOException $e){
     $title = 'An error has occured';
-    $output = 'Unable to delete post: ' . $e->getMessage();
+    $output = 'Unable to Delete Post: ' . $e->getMessage();
 }
-include '../templates/admin_layout.html.php';
+include '../templates/adminlayout.html.php';

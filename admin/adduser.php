@@ -4,7 +4,9 @@ try {
     include '../includes/DatabaseFunctions.php';
 
     if (isset($_POST['submit'])) {
-        insertUser($pdo, $_POST['username'], $_POST['email']);
+        $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        
+        register($pdo, $_POST['username'], $_POST['email'], $hashed_password);
         
         header('location: users.php');
         exit;
@@ -20,5 +22,5 @@ try {
     $title = 'Error';
     $output = 'Database error: ' . $e->getMessage();
 }
-include '../templates/admin_layout.html.php';
+include '../templates/adminlayout.html.php';
 ?>

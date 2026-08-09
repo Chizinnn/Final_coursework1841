@@ -2,7 +2,7 @@
     <label for="title">Post Title:</label>
     <input type="text" name="title" id="title">
 
-    <label for="content">Type your Post content here:</label>
+    <label for="content">Type your Post Content here:</label>
     <textarea name="content" rows="3" cols="40"></textarea>
 
     <label for="image">Upload Image:</label>

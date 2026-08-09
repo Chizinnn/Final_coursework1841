@@ -5,15 +5,6 @@
     <div style="display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 300px;">
             <form action="contact.php" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                <div>
-                    <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Name:</label>
-                    <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
-                </div>
-
-                <div>
-                    <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Email:</label>
-                    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
-                </div>
 
                 <div>
                     <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message:</label>

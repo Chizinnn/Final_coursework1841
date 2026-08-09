@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: userlogin.php");
+    exit;
+}
+
 try {
     include 'includes/DatabaseConnection.php';
     include 'includes/DatabaseFunctions.php';
@@ -6,12 +12,9 @@ try {
     if (isset($_POST['message'])) {
         $title = "Contact Us";
         
-        insertContact($pdo, $_POST['name'], $_POST['email'], $_POST['message']);
+        insertContact($pdo, $_SESSION['user_id'], $_POST['message']);
         
-        $message = $_POST['message'];
-       
-        $output = "Thanks for asking! Please wait.";
-        
+        $output = "<p style='color:#2bb673; font-weight:bold;'>Thanks for asking! We will contact you soon.</p>";
     } else {
         $title = "Contact Us";
         ob_start();
@@ -22,5 +25,6 @@ try {
     $title = 'Error';
     $output = 'Database error: ' . $e->getMessage();
 }
+
 include 'templates/layout.html.php';
 ?>

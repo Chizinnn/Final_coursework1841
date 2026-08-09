@@ -9,11 +9,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     try {
-        $sql = "SELECT * FROM users WHERE user_email = :email";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['email' => $email]);
-        $user = $stmt->fetch();
-
+        $user = getUserByEmail($pdo, $email);
         if ($user && password_verify($password, $user['user_password'])) {
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $user['username'];
@@ -21,7 +17,7 @@ if (isset($_POST['submit'])) {
             header("Location: posts.php");
             exit;
         } else {
-            $output = "<p style='color:red;'>Something wrong, Try Again</p>";
+            $output = "Something wrong, Try Again";
         }
     } catch (PDOException $e) {
         $output = "Error database: " . $e->getMessage();

@@ -6,8 +6,7 @@ function query($pdo, $sql, $parameters = []) {
 }
 
 function allPosts($pdo) {
-    $sql = 'SELECT posts.post_id, posts.title, posts.CONTENT AS content, posts.IMAGE_PATH AS image_path, posts.post_date, users.username, users.user_email, modules.module_name 
-            FROM posts 
+    $sql = 'SELECT posts.post_id, posts.title, posts.CONTENT AS content, posts.IMAGE_PATH AS image_path, posts.post_date, posts.user_id, users.username, users.user_email, modules.module_name            FROM posts 
             LEFT JOIN users ON posts.user_id = users.user_id 
             LEFT JOIN modules ON posts.module_id = modules.module_id';
     $posts = query($pdo, $sql);
@@ -117,18 +116,19 @@ function deleteModule($pdo, $id) {
     query($pdo, 'DELETE FROM modules WHERE module_id = :id', $parameters);
 }
 
-function insertContact($pdo, $name, $email, $message) {
-    $query = 'INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)';
+function insertContact($pdo, $user_id, $message) {
+    $query = 'INSERT INTO contacts (user_id, message) VALUES (:user_id, :message)';
     $parameters = [
-        ':name' => $name,
-        ':email' => $email,
+        ':user_id' => $user_id,
         ':message' => $message
     ];
     query($pdo, $query, $parameters);
 }
 
 function allContacts($pdo) {
-    $sql = 'SELECT contact_id, name, email, message FROM contacts';
+    $sql = 'SELECT contacts.contact_id, users.username AS name, users.user_email AS email, contacts.message 
+            FROM contacts 
+            INNER JOIN users ON contacts.user_id = users.user_id';
     $contacts = query($pdo, $sql);
     return $contacts->fetchAll();
 }
