@@ -38,7 +38,7 @@ function insertPost($pdo, $title, $content, $image_path, $user_id, $module_id) {
     query($pdo, $query, $parameters);
 }
 
-function updatePost($pdo, $postId, $title, $content, $image_path, $user_id, $module_id) {
+function updatePost($pdo, $postid, $title, $content, $image_path, $user_id, $module_id) {
     $query = 'UPDATE posts SET title = :title, content = :content, image_path = :image_path, user_id = :user_id, module_id = :module_id WHERE post_id = :id';
     $parameters = [
         ':title' => $title,

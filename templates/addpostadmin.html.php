@@ -15,7 +15,7 @@
             
             <div>
                 <label for="image" style="display: block; margin-bottom: 8px;">Upload Image:</label>
-                <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg, image/gif">
+                <input type="file" name="image_file" id="image" accept="image/png, image/jpeg, image/jpg, image/gif">
             </div>
             
             <div>
