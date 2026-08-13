@@ -46,7 +46,7 @@ function updatePost($pdo, $postid, $title, $content, $image_path, $user_id, $mod
         ':image_path' => $image_path,
         ':user_id' => $user_id,
         ':module_id' => $module_id,
-        ':id' => $postId
+        ':id' => $postid
     ];
     query($pdo, $query, $parameters);
 }
